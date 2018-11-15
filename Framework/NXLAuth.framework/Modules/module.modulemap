@@ -1,0 +1,6 @@
+framework module NXLAuth {
+  umbrella header "NXLAuth.h"
+
+  export *
+  module * { export * }
+}
