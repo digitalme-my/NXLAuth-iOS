@@ -53,7 +53,7 @@ confidentiality of the client secrets may not work well.
 
 Want to try out NXLAuth? Just [CLICK HERE](https://github.com/nexlife/NXLAuth-iOS-example) to try out our Demo App
 
-Follow the instructions in [Demo App README.md](https://github.com/nexlife/NXLAuth-iOS-example) to configure
+Follow the instructions in [the Demo app README.md](https://github.com/nexlife/NXLAuth-iOS-example) to configure
 with your own OAuth client (you need to update 3 configuration points with your
 client info to try the demo).
 
