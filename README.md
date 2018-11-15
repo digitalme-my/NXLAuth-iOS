@@ -121,8 +121,11 @@ authorization state of the session.
 
 ### Configuration
 
-Create a NXLAuthConfig.plist in your project.
-add the following line to your NXLAuthConfig.plist.
+#### Information You'll Need From Your idP
+
+* Issuer
+* Client ID
+* Redirect URI
 
 <img src="/images/configuration.gif" width="100%" height="100%" />
 
@@ -173,32 +176,20 @@ app for a demonstration.
 
 ```objc
 // builds authentication request
-OIDAuthorizationRequest *request =
-    [[OIDAuthorizationRequest alloc] initWithConfiguration:configuration
-                                                  clientId:kClientID
-                                                    scopes:@[OIDScopeOpenID,
-                                                             OIDScopeProfile]
-                                               redirectURL:KRedirectURI
-                                              responseType:OIDResponseTypeCode
-                                      additionalParameters:nil];
-
-// performs authentication request
-AppDelegate *appDelegate =
-    (AppDelegate *)[UIApplication sharedApplication].delegate;
-appDelegate.currentAuthorizationFlow =
-    [OIDAuthState authStateByPresentingAuthorizationRequest:request
-        presentingViewController:self
-                        callback:^(OIDAuthState *_Nullable authState,
-                                   NSError *_Nullable error) {
-  if (authState) {
-    NSLog(@"Got authorization tokens. Access token: %@",
-          authState.lastTokenResponse.accessToken);
-    [self setAuthState:authState];
-  } else {
-    NSLog(@"Authorization error: %@", [error localizedDescription]);
-    [self setAuthState:nil];
-  }
-}];
+AppDelegate *appDelegate = (AppDelegate *) [UIApplication sharedApplication].delegate;
+    NXLAppAuthManager *nexMng = [[NXLAppAuthManager alloc] init];
+    NSArray *scopes = @[ ScopeOpenID, ScopeOffline];
+    [nexMng ssoAuthRequest:scopes :^(OIDAuthorizationRequest *request){
+    
+        appDelegate.currentAuthorizationFlow = [nexMng ssoAuthStateByPresentingAuthorizationRequest:request    presentingViewController:self :^(OIDAuthState * _Nonnull authState) {
+            if (authState) {
+	       NSLog(@"Got authorization tokens. Access token: %@",
+                   authState.lastTokenResponse.accessToken);
+                [self setAuthState:authState];
+                
+            }    
+        }];
+    }];
 ```
 
 *Handling the Redirect*
