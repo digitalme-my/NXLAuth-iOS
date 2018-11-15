@@ -43,7 +43,7 @@ Safari) on earlier versions.
 Both Custom URI Schemes (all supported versions of iOS) and Universal Links
 (iOS 9+) can be used with the library.
 
-In general, AppAuth can work with any Authorization Server (AS) that supports
+In general, NXLAuth can work with any Authorization Server (AS) that supports
 native apps as documented in [RFC 8252](https://tools.ietf.org/html/rfc8252),
 either through custom URI scheme redirects, or universal links.
 AS's that assume all clients are web-based or require clients to maintain
