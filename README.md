@@ -69,7 +69,7 @@ with your own OAuth client (you need to update 3 configuration points with your
 client info to try the demo).
 
 
-## Setup & Download Framework
+## Download & Setup
 
 ### Setup podfile
 
