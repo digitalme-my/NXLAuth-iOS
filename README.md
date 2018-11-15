@@ -62,7 +62,7 @@ authorization state of the session.
 
 ## Try
 
-Want to try out NXLAuth? Just [CLICK HERE](https://github.com/nexlife/NXLAuth-iOS-example) to try out our Demo App
+Want to try out NXLAuth? Just click [HERE](https://github.com/nexlife/NXLAuth-iOS-example) to try out our Demo App
 
 Follow the instructions in [the Demo app README.md](https://github.com/nexlife/NXLAuth-iOS-example) to configure
 with your own OAuth client (you need to update 3 configuration points with your
