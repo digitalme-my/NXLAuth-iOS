@@ -65,6 +65,7 @@ client info to try the demo).
     `pod 'AppAuth', :git => 'https://github.com/nexlife/AppAuth-iOS.git'`
 
    Then run 
+   
     `pod install`.
 
 
