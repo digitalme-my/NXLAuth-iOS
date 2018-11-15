@@ -49,6 +49,17 @@ either through custom URI scheme redirects, or universal links.
 AS's that assume all clients are web-based or require clients to maintain
 confidentiality of the client secrets may not work well.
 
+## Auth Flow
+
+NXLAuth provide convenience methods to interaction with the Authorization Server
+where you perform token exchanges and some of this logic for you. This Demo app uses the
+convenience method which returns either an `OIDAuthState` object, or an error.
+
+`OIDAuthState` is a class that keeps track of the authorization and token
+requests and responses, and provides a convenience method to call an API with
+fresh tokens. This is the only object that you need to serialize to retain the
+authorization state of the session.
+
 ## Try
 
 Want to try out NXLAuth? Just [CLICK HERE](https://github.com/nexlife/NXLAuth-iOS-example) to try out our Demo App
@@ -108,17 +119,6 @@ client info to try the demo).
     </plist>
     ```
     
-## Auth Flow
-
-NXLAuth provide convenience methods to interaction with the Authorization Server
-where you perform token exchanges and some of this logic for you. This Demo app uses the
-convenience method which returns either an `OIDAuthState` object, or an error.
-
-`OIDAuthState` is a class that keeps track of the authorization and token
-requests and responses, and provides a convenience method to call an API with
-fresh tokens. This is the only object that you need to serialize to retain the
-authorization state of the session.
-
 ### Configuration
 
 #### Information You'll Need From Your idP
