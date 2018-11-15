@@ -71,12 +71,12 @@ client info to try the demo).
    
    - Unzip and move the framework into your project.
    
-     <img src="/images/drag_framework.gif" width="50%" height="50%" />
+     <img src="/images/drag_framework.gif" width="80%" height="80%" />
    
    
    - Add NXLAuth.framework into Embedded Binaries.
    
-     <img src="/images/link_binary.gif" width="50%" height="50%" />
+     <img src="/images/link_binary.gif" width="80%" height="80%" />
 
 3. Create a NXLAuthConfig.plist in your project.
    add the following line to your NXLAuthConfig.plist.
