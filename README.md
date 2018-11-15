@@ -57,7 +57,10 @@ Follow the instructions in [the Demo app README.md](https://github.com/nexlife/N
 with your own OAuth client (you need to update 3 configuration points with your
 client info to try the demo).
 
-## Setup
+
+## Setup & Download Framework
+
+### Setup podfile
 
 1. With [CocoaPods](https://guides.cocoapods.org/using/getting-started.html),
    add the following line to your `Podfile`:
@@ -69,7 +72,9 @@ client info to try the demo).
     `pod install`.
 
 
-2. Download the NXLAuth Framework file [HERE](https://github.com/nexlife/NXLAuth-iOS/archive/master.zip)
+### Download NXLAuth Framework
+
+2. Download the NXLAuth Framework file 👉 [HERE](https://github.com/nexlife/NXLAuth-iOS/archive/master.zip) 👈
    
    - Unzip and move the framework into your project.
    
