@@ -124,6 +124,8 @@ authorization state of the session.
 Create a NXLAuthConfig.plist in your project.
 add the following line to your NXLAuthConfig.plist.
 
+<img src="/images/configuration.gif" width="100%" height="100%" />
+
 ```
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
