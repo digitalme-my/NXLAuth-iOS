@@ -60,14 +60,39 @@ client info to try the demo).
 ## Setup
 
 1. With [CocoaPods](https://guides.cocoapods.org/using/getting-started.html),
-add the following line to your `Podfile`:
+   add the following line to your `Podfile`:
 
     pod 'AppAuth'
 
-Then run `pod install`.
+   Then run `pod install`.
 
 
 2. Download the NXLAuth Framework file [HERE](https://github.com/nexlife/NXLAuth-iOS/archive/master.zip)
+   
+   Unzip and move the framework into your project
+
+3. Create a NXLAuthConfig.plist in your project.
+   add the following line to your NXLAuthConfig.plist.
+
+    ```
+    <?xml version="1.0" encoding="UTF-8"?>
+    <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+    <plist version="1.0">
+    <dict>
+        <key>NXLAuthConfig</key>
+        <array>
+            <dict>
+                <key>Issuer</key>
+                <string>YOUR ISSUER</string>
+                <key>ClientID</key>
+                <string>YOUR CLIENT ID</string>
+                <key>RedirectURI</key>
+                <string>YOUR REDIRECT URL</string>
+            </dict>
+        </array>
+    </dict>
+    </plist>
+    ```
 
 ### Static Library
 
@@ -95,39 +120,27 @@ authorization state of the session.
 
 ### Configuration
 
-You can configure AppAuth by specifying the endpoints directly:
+Create a NXLAuthConfig.plist in your project.
+add the following line to your NXLAuthConfig.plist.
 
-```objc
-NSURL *authorizationEndpoint =
-    [NSURL URLWithString:@"https://accounts.google.com/o/oauth2/v2/auth"];
-NSURL *tokenEndpoint =
-    [NSURL URLWithString:@"https://www.googleapis.com/oauth2/v4/token"];
-
-OIDServiceConfiguration *configuration =
-    [[OIDServiceConfiguration alloc]
-        initWithAuthorizationEndpoint:authorizationEndpoint
-                        tokenEndpoint:tokenEndpoint];
-
-// perform the auth request...
 ```
-
-Or through discovery:
-
-```objc
-NSURL *issuer = [NSURL URLWithString:@"https://accounts.google.com"];
-
-[OIDAuthorizationService discoverServiceConfigurationForIssuer:issuer
-    completion:^(OIDServiceConfiguration *_Nullable configuration,
-                 NSError *_Nullable error) {
-
-  if (!configuration) {
-    NSLog(@"Error retrieving discovery document: %@",
-          [error localizedDescription]);
-    return;
-  }
-
-  // perform the auth request...
-}];
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>NXLAuthConfig</key>
+	<array>
+		<dict>
+			<key>Issuer</key>
+			<string>YOUR ISSUER</string>
+			<key>ClientID</key>
+			<string>YOUR CLIENT ID</string>
+			<key>RedirectURI</key>
+			<string>YOUR REDIRECT URL</string>
+		</dict>
+	</array>
+</dict>
+</plist>
 ```
 
 ### Authorizing – iOS
