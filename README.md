@@ -69,7 +69,14 @@ client info to try the demo).
 
 2. Download the NXLAuth Framework file [HERE](https://github.com/nexlife/NXLAuth-iOS/archive/master.zip)
    
-   Unzip and move the framework into your project
+   - Unzip and move the framework into your project.
+   
+     <img src="/images/drag_framework.gif" width="50%" height="50%" />
+   
+   
+   - Add NXLAuth.framework into Embedded Binaries.
+   
+     <img src="/images/link_binary.gif" width="50%" height="50%" />
 
 3. Create a NXLAuthConfig.plist in your project.
    add the following line to your NXLAuthConfig.plist.
