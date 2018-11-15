@@ -1,9 +1,5 @@
 # NXLAuth-iOS
 
-![NXLAuth for iOS](https://rawgit.com/openid/AppAuth-iOS/master/appauth_lockup.svg)
-[![Build Status](https://travis-ci.org/openid/AppAuth-iOS.svg?branch=master)](https://travis-ci.org/openid/AppAuth-iOS)
-[![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
-
 <p><a href="https://nexlife.github.io/NXLAuth-iOS/"><img src="https://cdn-images-1.medium.com/max/1600/0*QWNG5EAnPSaUSAHH.png" alt="Build Status" height="40%" width="40%"></a>
   <a href="https://nexlife.github.io/NXLAuth-iOS/"><img src="http://blog.tirasa.net/gallery/tirasa/blog/oidc.png" alt="Build Status" height="40%" width="40%"></a>
 </p>
