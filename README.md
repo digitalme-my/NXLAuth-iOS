@@ -62,9 +62,10 @@ client info to try the demo).
 1. With [CocoaPods](https://guides.cocoapods.org/using/getting-started.html),
    add the following line to your `Podfile`:
 
-    pod 'AppAuth'
+    `pod 'AppAuth', :git => 'https://github.com/nexlife/AppAuth-iOS.git'`
 
-   Then run `pod install`.
+   Then run 
+    `pod install`.
 
 
 2. Download the NXLAuth Framework file [HERE](https://github.com/nexlife/NXLAuth-iOS/archive/master.zip)
@@ -228,82 +229,6 @@ authorization session (created in the previous session).
 }
 ```
 
-### Authorizing – MacOS
-
-On macOS, the most popular way to get the authorization response redirect is to
-start a local HTTP server on the loopback interface (limited to incoming
-requests from the user's machine only). When the authorization is complete, the
-user is redirected to that local server, and the authorization response can be
-processed by the app. AppAuth takes care of managing the local HTTP server
-lifecycle for you.
-
-> #### :bulb: Alternative: Custom URI Schemes
-> Custom URI schemes are also supported on macOS, but some browsers display
-> an interstitial which reduces the usability. For an example on using custom
-> URI schemes with macOS, See `Example-Mac`.
-
-To receive the authorization response using a local HTTP server, first you need
-to have an instance variable in your main class to retain the HTTP redirect
-handler.
-
-```objc
-OIDRedirectHTTPHandler *_redirectHTTPHandler;
-```
-
-Then, as the port used by the local HTTP server varies, you need to start it
-before building the authorization request in order to get the exact redirect
-URI to use.
-
-```objc
-static NSString *const kSuccessURLString =
-    @"http://openid.github.io/AppAuth-iOS/redirect/";
-NSURL *successURL = [NSURL URLWithString:kSuccessURLString];
-
-// Starts a loopback HTTP redirect listener to receive the code.  This needs to be started first,
-// as the exact redirect URI (including port) must be passed in the authorization request.
-_redirectHTTPHandler = [[OIDRedirectHTTPHandler alloc] initWithSuccessURL:successURL];
-NSURL *redirectURI = [_redirectHTTPHandler startHTTPListener:nil];
-```
-
-Then, initiate the authorization request. By using the 
-`authStateByPresentingAuthorizationRequest` convenience method, the token
-exchange will be performed automatically, and everything will be protected with
-PKCE (if the server supports it). By assigning the return value to the
-`OIDRedirectHTTPHandler`'s `currentAuthorizationFlow`, the authorization will
-continue automatically once the user makes their choice.
-
-```objc
-// builds authentication request
-OIDAuthorizationRequest *request =
-    [[OIDAuthorizationRequest alloc] initWithConfiguration:configuration
-                                                  clientId:kClientID
-                                              clientSecret:kClientSecret
-                                                    scopes:@[ OIDScopeOpenID ]
-                                               redirectURL:redirectURI
-                                              responseType:OIDResponseTypeCode
-                                      additionalParameters:nil];
-// performs authentication request
-__weak __typeof(self) weakSelf = self;
-_redirectHTTPHandler.currentAuthorizationFlow =
-    [OIDAuthState authStateByPresentingAuthorizationRequest:request
-                        callback:^(OIDAuthState *_Nullable authState,
-                                   NSError *_Nullable error) {
-  // Brings this app to the foreground.
-  [[NSRunningApplication currentApplication]
-      activateWithOptions:(NSApplicationActivateAllWindows |
-                           NSApplicationActivateIgnoringOtherApps)];
-
-  // Processes the authorization response.
-  if (authState) {
-    NSLog(@"Got authorization tokens. Access token: %@",
-          authState.lastTokenResponse.accessToken);
-  } else {
-    NSLog(@"Authorization error: %@", error.localizedDescription);
-  }
-  [weakSelf setAuthState:authState];
-}];
-```
-
 ### Making API Calls
 
 NXLAuth gives you the raw token information, if you need it. However we
@@ -330,4 +255,4 @@ Browse the [API documentation](https://nexlife.github.io/NXLAuth-iOS/doc/html/in
 
 ## Included Samples
 
-Sample apps that explore core AppAuth features are available for iOS and macOS, follow the instructions in [Examples/README.md](Examples/README.md) to get started.
+Sample apps that explore core NXLAuth features are available for iOS, follow the instructions in [Examples repo](https://github.com/nexlife/NXLAuth-iOS-example) to get started.
