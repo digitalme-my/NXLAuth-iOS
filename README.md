@@ -1,8 +1,8 @@
 # NXLAuth-iOS
 
-![NXLAuth for iOS](https://rawgit.com/openid/AppAuth-iOS/master/appauth_lockup.svg)
-[![Build Status](https://travis-ci.org/openid/AppAuth-iOS.svg?branch=master)](https://travis-ci.org/openid/AppAuth-iOS)
-[![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
+<p><a href="https://nexlife.github.io/NXLAuth-iOS/"><img src="https://cdn-images-1.medium.com/max/1600/0*QWNG5EAnPSaUSAHH.png" alt="Build Status" height="40%" width="40%"></a>
+  <a href="https://nexlife.github.io/NXLAuth-iOS/"><img src="http://blog.tirasa.net/gallery/tirasa/blog/oidc.png" alt="Build Status" height="40%" width="40%"></a>
+</p>
 
 NXLAuth for iOS is a client SDK for communicating with 
 [OAuth 2.0](https://tools.ietf.org/html/rfc6749) and 
@@ -43,7 +43,7 @@ Safari) on earlier versions.
 Both Custom URI Schemes (all supported versions of iOS) and Universal Links
 (iOS 9+) can be used with the library.
 
-In general, AppAuth can work with any Authorization Server (AS) that supports
+In general, NXLAuth can work with any Authorization Server (AS) that supports
 native apps as documented in [RFC 8252](https://tools.ietf.org/html/rfc8252),
 either through custom URI scheme redirects, or universal links.
 AS's that assume all clients are web-based or require clients to maintain
@@ -57,7 +57,10 @@ Follow the instructions in [the Demo app README.md](https://github.com/nexlife/N
 with your own OAuth client (you need to update 3 configuration points with your
 client info to try the demo).
 
-## Setup
+
+## Setup & Download Framework
+
+### Setup podfile
 
 1. With [CocoaPods](https://guides.cocoapods.org/using/getting-started.html),
    add the following line to your `Podfile`:
@@ -69,7 +72,9 @@ client info to try the demo).
     `pod install`.
 
 
-2. Download the NXLAuth Framework file [HERE](https://github.com/nexlife/NXLAuth-iOS/archive/master.zip)
+### Download NXLAuth Framework
+
+2. Download the NXLAuth Framework file 👉 [HERE](https://github.com/nexlife/NXLAuth-iOS/archive/master.zip) 👈
    
    - Unzip and move the framework into your project.
    
@@ -102,24 +107,11 @@ client info to try the demo).
     </dict>
     </plist>
     ```
-
-### Static Library
-
-You can also use AppAuth as a static library. This requires linking the library
-and your project and including the headers.  Suggested configuration:
-
-1. Create an Xcode Workspace.
-2. Add `AppAuth.xcodeproj` to your Workspace.
-3. Include libAppAuth as a linked library for your target (in the "General ->
-Linked Framework and Libraries" section of your target).
-4. Add `AppAuth-iOS/Source` to your search paths of your target ("Build Settings ->
-"Header Search Paths").
-
+    
 ## Auth Flow
 
-AppAuth supports both manual interaction with the Authorization Server
-where you need to perform your own token exchanges, as well as convenience
-methods that perform some of this logic for you. This example uses the
+NXLAuth provide convenience methods to interaction with the Authorization Server
+where you perform token exchanges and some of this logic for you. This Demo app uses the
 convenience method which returns either an `OIDAuthState` object, or an error.
 
 `OIDAuthState` is a class that keeps track of the authorization and token
