@@ -217,7 +217,7 @@ authorization session (created in the previous session).
 
 NXLAuth gives you the raw token information, if you need it. However we
 recommend that users of the `OIDAuthState` convenience wrapper use the provided
-`performActionWithFreshTokens:` method to perform their API calls to avoid
+`getFreshToken:` method to perform their API calls to avoid
 needing to worry about token freshness.
 
 ```objc
