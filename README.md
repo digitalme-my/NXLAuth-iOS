@@ -4,6 +4,10 @@
 [![Build Status](https://travis-ci.org/openid/AppAuth-iOS.svg?branch=master)](https://travis-ci.org/openid/AppAuth-iOS)
 [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
 
+<p><a href="https://nexlife.github.io/NXLAuth-iOS/"><img src="https://cdn-images-1.medium.com/max/1600/0*QWNG5EAnPSaUSAHH.png" alt="Build Status" height="40%" width="40%"></a>
+  <a href="https://nexlife.github.io/NXLAuth-iOS/"><img src="http://blog.tirasa.net/gallery/tirasa/blog/oidc.png" alt="Build Status" height="40%" width="40%"></a>
+</p>
+
 NXLAuth for iOS is a client SDK for communicating with 
 [OAuth 2.0](https://tools.ietf.org/html/rfc6749) and 
 [OpenID Connect](http://openid.net/specs/openid-connect-core-1_0.html) providers. 
