@@ -107,24 +107,11 @@ client info to try the demo).
     </dict>
     </plist>
     ```
-
-### Static Library
-
-You can also use AppAuth as a static library. This requires linking the library
-and your project and including the headers.  Suggested configuration:
-
-1. Create an Xcode Workspace.
-2. Add `AppAuth.xcodeproj` to your Workspace.
-3. Include libAppAuth as a linked library for your target (in the "General ->
-Linked Framework and Libraries" section of your target).
-4. Add `AppAuth-iOS/Source` to your search paths of your target ("Build Settings ->
-"Header Search Paths").
-
+    
 ## Auth Flow
 
-AppAuth supports both manual interaction with the Authorization Server
-where you need to perform your own token exchanges, as well as convenience
-methods that perform some of this logic for you. This example uses the
+NXLAuth provide convenience methods to interaction with the Authorization Server
+where you perform token exchanges and some of this logic for you. This Demo app uses the
 convenience method which returns either an `OIDAuthState` object, or an error.
 
 `OIDAuthState` is a class that keeps track of the authorization and token
