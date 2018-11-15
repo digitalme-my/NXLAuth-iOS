@@ -168,11 +168,9 @@ And your main class, a property to store the auth state:
 ```
 
 Then, initiate the authorization request. By using the 
-`authStateByPresentingAuthorizationRequest` convenience method, the token
+`ssoAuthRequest` convenience method, the token
 exchange will be performed automatically, and everything will be protected with
-PKCE (if the server supports it). AppAuth also allows you to perform these
-requests manually. See the `authNoCodeExchange` method in the included Example
-app for a demonstration.
+PKCE (if the server supports it).
 
 ```objc
 // builds authentication request
@@ -223,8 +221,10 @@ recommend that users of the `OIDAuthState` convenience wrapper use the provided
 needing to worry about token freshness.
 
 ```objc
-[_authState performActionWithFreshTokens:^(NSString *_Nonnull accessToken,
+ NXLAppAuthManager *nexMng = [[NXLAppAuthManager alloc] init];
+[nexMng getFreshToken:^(NSString *_Nonnull accessToken,
                                            NSString *_Nonnull idToken,
+					   OIDAuthState * _Nonnull currentAuthState,
                                            NSError *_Nullable error) {
   if (error) {
     NSLog(@"Error fetching fresh tokens: %@", [error localizedDescription]);
