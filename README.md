@@ -155,6 +155,9 @@ First you need to have a property in your AppDelegate to hold the session, in
 order to continue the authorization flow from the redirect.
 
 ```objc
+// protocol of the app's AppDelegate
+@protocol OIDExternalUserAgentSession;
+
 // property of the app's AppDelegate
 @property(nonatomic, strong, nullable)
     id<OIDExternalUserAgentSession> currentAuthorizationFlow;
