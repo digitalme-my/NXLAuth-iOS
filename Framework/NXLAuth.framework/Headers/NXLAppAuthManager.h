@@ -33,7 +33,7 @@
  @remarks This convenience initializer generates a state parameter and PKCE challenges
  automatically.
  */
-- (void)ssoAuthRequest:(nullable NSArray<NSString *> *)scopes :(void (^)(OIDAuthorizationRequest *request))completion;
+- (void)authRequest:(nullable NSArray<NSString *> *)scopes :(void (^)(OIDAuthorizationRequest *request))completion;
 
 // perform Authorization Request
 /*! @brief Convenience method to create a @c OIDAuthState by presenting an authorization request from ssoAuthRequest method
@@ -50,7 +50,7 @@
  receives a @c OIDExternalUserAgentSession.cancel message, or after processing a
  @c OIDExternalUserAgentSession.resumeExternalUserAgentFlowWithURL: message.
  */
-- (id<OIDExternalUserAgentSession>)ssoAuthStateByPresentingAuthorizationRequest:(OIDAuthorizationRequest *)authorizationRequest presentingViewController:(UIViewController *)presentingViewController :(void (^)(OIDAuthState *authState))completion;
+- (id<OIDExternalUserAgentSession>)authStateByPresentingAuthorizationRequest:(OIDAuthorizationRequest *)authorizationRequest presentingViewController:(UIViewController *)presentingViewController :(void (^)(OIDAuthState *authState))completion;
 
 // get fresh token
 /*! @brief Calls the block with a valid access token (refreshing it first, if needed), or if a
