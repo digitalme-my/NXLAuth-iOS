@@ -61,6 +61,10 @@
  */
 - (void)getFreshToken :(void (^)(NSString *_Nonnull accessToken, NSString *_Nonnull idToken, OIDAuthState *currentAuthState, NSError *_Nullable error))completion;
 
+/*! @brief Clear SDK Auth State.
+ */
+- (void)clearAuthState;
+
 // get User Info
 /*! @brief a simple method to return user information based on the valid access token. Refreshing token if needed.
  @param completion Return user information.
