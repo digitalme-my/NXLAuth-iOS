@@ -46,7 +46,7 @@
  receives a @c OIDExternalUserAgentSession.cancel message, or after processing a
  @c OIDExternalUserAgentSession.resumeExternalUserAgentFlowWithURL: message.
  */
-- (id<OIDExternalUserAgentSession>)authStateByPresentingAuthorizationRequest:(OIDAuthorizationRequest *)authorizationRequest presentingViewController:(UIViewController *)presentingViewController :(void (^)(OIDAuthState *authState))completion;
+- (id<OIDExternalUserAgentSession>)authStateByPresentingAuthorizationRequest:(OIDAuthorizationRequest *)authorizationRequest presentingViewController:(UIViewController *)presentingViewController callback:(OIDAuthStateAuthorizationCallback)completion;
 
 // get fresh token
 /*! @brief Calls the block with a valid access token (refreshing it first, if needed), or if a
