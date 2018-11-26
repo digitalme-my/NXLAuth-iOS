@@ -21,10 +21,6 @@
  */
 @property(nonatomic, strong, nullable) OIDAuthState *authState;
 
-/*! @brief A testing method.
- */
-- (void)testMethod;
-
 // get Authorization Request URL
 /*! @brief Creates an authorization request with opinionated defaults (a secure @c state, and
  PKCE with S256 as the @c code_challenge_method).

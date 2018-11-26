@@ -45,7 +45,7 @@ FOUNDATION_EXPORT const unsigned char NXLAuthVersionString[];
  
  <b>Homepage</b>: https://nexlife.github.io/NXLAuth-iOS/ <br>
  <b>API Documentation</b>: https://nexlife.github.io/NXLAuth-iOS/doc/html/ <br>
- <b>Git Repository</b>: https://github.com/openid/AppAuth-iOS <br>
+ <b>Git Repository</b>: https://github.com/nexlife/NXLAuth-iOS <br>
  
  */
 
