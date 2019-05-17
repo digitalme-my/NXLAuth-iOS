@@ -238,6 +238,34 @@ needing to worry about token freshness.
 }];
 ```
 
+## Remember
+The universal framework will run on both simulators and Devices. But still there is a problem.
+
+Need to remove unused architectures before submit to Apple app store. Because Apple doesn’t allow the application with unused architectures to the App Store.
+Please make sure that you have Remove Unused Architectures Script added in your project while releasing your app to app store.
+
+##### Remove Unused Architectures
+Select the Project, Choose Target → Project Name → Select Build Phases → Press “+” → New Run Script Phase → Name the Script as “Remove Unused Architectures Script”.
+
+```
+if [ "${CONFIGURATION}" = "Release" ]; then
+FRAMEWORK="NXLAuth"
+FRAMEWORK_EXECUTABLE_PATH="${BUILT_PRODUCTS_DIR}/${FRAMEWORKS_FOLDER_PATH}/$FRAMEWORK.framework/$FRAMEWORK"
+EXTRACTED_ARCHS=()
+for ARCH in $ARCHS
+do
+lipo -extract "$ARCH" "$FRAMEWORK_EXECUTABLE_PATH" -o "$FRAMEWORK_EXECUTABLE_PATH-$ARCH"
+EXTRACTED_ARCHS+=("$FRAMEWORK_EXECUTABLE_PATH-$ARCH")
+done
+lipo -o "$FRAMEWORK_EXECUTABLE_PATH-merged" -create "${EXTRACTED_ARCHS[@]}"
+rm "${EXTRACTED_ARCHS[@]}"
+rm "$FRAMEWORK_EXECUTABLE_PATH"
+mv "$FRAMEWORK_EXECUTABLE_PATH-merged" "$FRAMEWORK_EXECUTABLE_PATH"
+fi
+```
+
+This run script removes the unused Simulator architectures only while pushing the Application to the App Store.
+
 ## API Documentation
 
 Browse the [API documentation](https://nexlife.github.io/NXLAuth-iOS/doc/html/index.html).
